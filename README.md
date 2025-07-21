@@ -69,33 +69,9 @@ A beautiful, production-ready task management dashboard built with React, TypeSc
 
 
 
-## Project Structure
 
-```
-src/
-├── components/
-│   ├── Dashboard/
-│   │   ├── Dashboard.tsx
-│   │   └── StatsCard.tsx
-│   ├── Layout/
-│   │   └── Sidebar.tsx
-│   └── Tasks/
-│       ├── TaskCard.tsx
-│       ├── TaskFilters.tsx
-│       ├── TaskForm.tsx
-│       └── TaskList.tsx
-├── services/
-│   └── api.ts
-├── stores/
-│   └── taskStore.ts
-├── types/
-│   └── task.ts
-├── utils/
-│   └── pdfGenerator.ts
-└── App.tsx
-```
 
-## Features Detail
+
 
 ### Task Management
 - Create tasks with title, description, priority, and due date
@@ -121,9 +97,4 @@ src/
 
 
 
-## Development
-
-- **Linting**: `npm run lint`
-- **Build**: `npm run build`
-- **Preview**: `npm run preview`
 
