@@ -68,7 +68,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Title
+              Title <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -81,7 +81,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Description
+              Description <span className="text-red-500">*</span>
             </label>
             <textarea
               value={formData.description}
@@ -101,7 +101,12 @@ export const TaskForm: React.FC<TaskFormProps> = ({
             </button>
             <button
               type="submit"
-              className="flex-1 cursor-pointer px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+              disabled={!formData.title || !formData.description}
+              className={`flex-1 px-4 py-2 text-white rounded-md transition-colors ${
+                !formData.title || !formData.description
+                  ? 'bg-blue-300 cursor-not-allowed'
+                  : 'bg-blue-600 cursor-pointer hover:bg-blue-700'
+              }`}
             >
               {editingTask ? 'Update Task' : 'Create Task'}
             </button>
