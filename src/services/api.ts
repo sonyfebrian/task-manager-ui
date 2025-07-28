@@ -28,6 +28,7 @@ export class ApiService {
         const newTask = {
             ...task,
             completed: false,
+            createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString(),
         };
 

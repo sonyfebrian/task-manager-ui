@@ -41,7 +41,21 @@ const [showConfirmModal, setShowConfirmModal] = useState(false);
     setShowConfirmModal(false); // Close modal after action
   };
 
-  
+ const formatDate = (dateString: string) => {
+    if (!dateString) return 'No due date';
+    
+    // Ensure it's a string and create date
+    const dateStr = String(dateString).trim();
+    const date = new Date(dateStr);
+    
+    // Check if date is valid
+    if (isNaN(date.getTime())) {
+      console.log('Invalid date string:', dateString); // Debug
+      return 'Invalid date';
+    }
+    
+    return format(date, 'yyyy-MM-dd');
+  };
   return (
     <div className={`bg-white rounded-lg shadow-md p-6 transition-all duration-200 hover:shadow-lg ${
       task.status ? 'opacity-75' : ''
@@ -94,13 +108,11 @@ const [showConfirmModal, setShowConfirmModal] = useState(false);
       <div className="flex items-center justify-between text-sm text-gray-500">
        <div className="flex items-center gap-1 sm:gap-2">
           <Calendar size={12} className="sm:w-3.5 sm:h-3.5" />
-          <span className={isOverdue && !task.status ? 'text-red-600 font-medium' : ''}>
-            Due Date: {format(new Date(task.dueDate), 'MMM dd, yyyy')}
+          <span className={`${isOverdue && !task.status ? 'text-red-600 font-medium' : ''} `}>
+            Due Date:  {formatDate(task.dueDate || '')}
           </span>
         </div>
-       <span>
-  Created: {format(new Date(task.createdAt * 1000), 'MMM dd')}
-</span>
+      
       </div>
     </div>
   );

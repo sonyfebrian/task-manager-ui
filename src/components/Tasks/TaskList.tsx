@@ -34,7 +34,7 @@ export const TaskList: React.FC = () => {
       await updateTask(id, {
         status: !task.status,
         priority: 'low',
-        dueDate: ''
+
       });
     }
   };

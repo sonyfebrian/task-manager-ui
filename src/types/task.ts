@@ -22,5 +22,5 @@ export interface UpdateTaskDto {
     description?: string;
     priority: 'low' | 'medium' | 'high';
     status?: boolean;
-    dueDate: string;
+    dueDate?: string;
 }
