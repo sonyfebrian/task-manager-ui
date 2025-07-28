@@ -32,8 +32,9 @@ export const TaskList: React.FC = () => {
     const task = tasks.find(t => t.id === id);
     if (task) {
       await updateTask(id, {
-          status: !task.status,
-          priority: 'low'
+        status: !task.status,
+        priority: 'low',
+        dueDate: ''
       });
     }
   };

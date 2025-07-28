@@ -8,8 +8,9 @@ const mockTasks: Task[] = [
         description: 'Test description 1',
         status: true,
         priority: 'high',
-        createdAt: '2025-01-08T10:00:00Z',
+        createdAt: 1753674250,
         updatedAt: '2025-01-08T10:00:00Z',
+        dueDate: "2025-01-08"
     },
     {
         id: '2',
@@ -17,8 +18,9 @@ const mockTasks: Task[] = [
         description: 'Test description 2',
         status: true,
         priority: 'medium',
-        createdAt: '2025-01-07T14:30:00Z',
+        createdAt: 1753674253,
         updatedAt: '2025-01-09T16:45:00Z',
+        dueDate: "2025-01-09"
     },
 ];
 
@@ -33,7 +35,7 @@ export const handlers = [
             ...newTask,
             id: Date.now().toString(),
             status: false,
-            createdAt: new Date().toISOString(),
+            createdAt: Date.now(),
             updatedAt: new Date().toISOString(),
         };
         return HttpResponse.json(task);

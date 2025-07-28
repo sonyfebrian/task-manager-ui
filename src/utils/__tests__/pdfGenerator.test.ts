@@ -26,8 +26,10 @@ const mockTasks: Task[] = [
         description: 'Test description 1',
         status: true,
         priority: 'high',
-        createdAt: '2025-01-08T10:00:00Z',
+        createdAt: 1753674250,
         updatedAt: '2025-01-08T10:00:00Z',
+        dueDate: "2025-01-08"
+
     },
     {
         id: '2',
@@ -35,8 +37,9 @@ const mockTasks: Task[] = [
         description: 'Test description 2',
         status: false,
         priority: 'medium',
-        createdAt: '2025-01-08T10:00:00Z',
+        createdAt: 1753674250,
         updatedAt: '2025-01-08T10:00:00Z',
+        dueDate: "2025-01-09"
     },
 ];
 
