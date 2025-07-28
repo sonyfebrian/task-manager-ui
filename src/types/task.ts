@@ -4,7 +4,8 @@ export interface Task {
     description: string;
     status: boolean;
     priority: 'low' | 'medium' | 'high';
-    createdAt: string;
+    dueDate: string;
+    createdAt: number;
     updatedAt: string;
 }
 
@@ -13,6 +14,7 @@ export interface CreateTaskDto {
     description: string;
     priority: 'low' | 'medium' | 'high';
     status: boolean;
+    dueDate: string;
 }
 
 export interface UpdateTaskDto {
@@ -20,4 +22,5 @@ export interface UpdateTaskDto {
     description?: string;
     priority: 'low' | 'medium' | 'high';
     status?: boolean;
+    dueDate: string;
 }

@@ -22,6 +22,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     description: '',
     priority: 'medium',
    status: false,
+    dueDate: '',
   });
 
   useEffect(() => {
@@ -31,6 +32,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
         description: editingTask.description,
         priority: editingTask.priority,
         status: editingTask.status,
+        dueDate: editingTask.dueDate,
       });
     } else {
       setFormData({
@@ -38,6 +40,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
         description: '',
         priority: 'medium',
         status: false,
+        dueDate:'',
       });
     }
   }, [editingTask, isOpen]);
@@ -91,6 +94,18 @@ export const TaskForm: React.FC<TaskFormProps> = ({
               required
             />
           </div>
+           <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+              Due Date <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="date"
+              value={formData.dueDate}
+              onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
+              className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            />
+          </div>
           <div className="flex gap-3 pt-4">
             <button
               type="button"
@@ -101,9 +116,9 @@ export const TaskForm: React.FC<TaskFormProps> = ({
             </button>
             <button
               type="submit"
-              disabled={!formData.title || !formData.description}
+              disabled={!formData.title || !formData.description || !formData.dueDate}
               className={`flex-1 px-4 py-2 text-white rounded-md transition-colors ${
-                !formData.title || !formData.description
+                !formData.title || !formData.description || !formData.dueDate
                   ? 'bg-blue-300 cursor-not-allowed'
                   : 'bg-blue-600 cursor-pointer hover:bg-blue-700'
               }`}

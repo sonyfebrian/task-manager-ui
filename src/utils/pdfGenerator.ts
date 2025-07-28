@@ -42,6 +42,7 @@ export const generateTaskReport = (tasks: Task[]): void => {
     doc.text('Title', 20, yPosition);
     doc.text('Status', 40, yPosition);
     doc.text('Description', 60, yPosition);
+    doc.text('Due Date', 90, yPosition);
 
     yPosition += 10;
 
@@ -56,12 +57,13 @@ export const generateTaskReport = (tasks: Task[]): void => {
         const title = task.title.length > 20 ? task.title.substring(0, 20) + '...' : task.title;
         const status = task.status ? 'Completed' : 'Pending';
         const description = task.description.length > 20 ? task.description.substring(0, 20) + '...' : task.description;
-
+        const dueDate = format(new Date(task.dueDate), 'MMM dd, yyyy');
 
 
         doc.text(title, 20, yPosition);
         doc.text(status, 40, yPosition);
         doc.text(description, 60, yPosition);
+        doc.text(dueDate, 90, yPosition);
 
 
 
